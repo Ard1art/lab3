@@ -1,0 +1,300 @@
+C:\Users\artak>aws ec2 create-security-group --group-name Ard1artSecuritygroup --description "Lab3" --vpc-id vpc-1c5b8661
+{
+    "GroupId": "sg-071860b345da461b5"
+}
+
+
+C:\Users\artak>aws ec2 authorize-security-group-ingress --group-id sg-071860b345da461b5 --protocol tcp --port 22 --cidr 0.0.0.0/0
+
+
+C:\Users\artak>aws ec2 authorize-security-group-ingress --group-id sg-071860b345da461b5 --protocol tcp --port 80 --cidr 0.0.0.0/0
+
+
+C:\Users\artak>aws ec2 authorize-security-group-ingress --group-id sg-071860b345da461b5 --protocol tcp --port 443 --cidr 0.0.0.0/0
+
+
+C:\Users\artak>aws ec2 create-key-pair --key-name ArturKey --query 'Lab3' --output text > ArturKey.pem
+
+C:\Users\artak>aws ec2 modify-subnet-attribute --subnet-id subnet-ad16c8c6 --map-public-ip-on-launch
+
+An error occurred (InvalidSubnetID.NotFound) when calling the ModifySubnetAttribute operation: The subnet ID 'subnet-ad16c8c6' does not exist
+
+C:\Users\artak>aws ec2 modify-subnet-attribute --subnet-id subnet-fe8f9b84 --map-public-ip-on-launch
+
+An error occurred (InvalidSubnetID.NotFound) when calling the ModifySubnetAttribute operation: The subnet ID 'subnet-fe8f9b84' does not exist
+
+C:\Users\artak>aws ec2 modify-subnet-attribute --subnet-id subnet-8d136cc1 --map-public-ip-on-launch
+
+An error occurred (InvalidSubnetID.NotFound) when calling the ModifySubnetAttribute operation: The subnet ID 'subnet-8d136cc1' does not exist
+
+C:\Users\artak>aws ec2 describe-subnets
+{
+    "Subnets": [
+        {
+            "AvailabilityZone": "us-east-1a",
+            "AvailabilityZoneId": "use1-az1",
+            "AvailableIpAddressCount": 4091,
+            "CidrBlock": "172.31.0.0/20",
+            "DefaultForAz": true,
+            "MapPublicIpOnLaunch": true,
+            "MapCustomerOwnedIpOnLaunch": false,
+            "State": "available",
+            "SubnetId": "subnet-4bc6462d",
+            "VpcId": "vpc-1c5b8661",
+            "OwnerId": "810661096819",
+            "AssignIpv6AddressOnCreation": false,
+            "Ipv6CidrBlockAssociationSet": [],
+            "SubnetArn": "arn:aws:ec2:us-east-1:810661096819:subnet/subnet-4bc6462d"
+        },
+        {
+            "AvailabilityZone": "us-east-1e",
+            "AvailabilityZoneId": "use1-az3",
+            "AvailableIpAddressCount": 4091,
+            "CidrBlock": "172.31.48.0/20",
+            "DefaultForAz": true,
+            "MapPublicIpOnLaunch": true,
+            "MapCustomerOwnedIpOnLaunch": false,
+            "State": "available",
+            "SubnetId": "subnet-ee0dd9df",
+            "VpcId": "vpc-1c5b8661",
+            "OwnerId": "810661096819",
+            "AssignIpv6AddressOnCreation": false,
+            "Ipv6CidrBlockAssociationSet": [],
+            "SubnetArn": "arn:aws:ec2:us-east-1:810661096819:subnet/subnet-ee0dd9df"
+        },
+        {
+            "AvailabilityZone": "us-east-1d",
+            "AvailabilityZoneId": "use1-az6",
+            "AvailableIpAddressCount": 4091,
+            "CidrBlock": "172.31.32.0/20",
+            "DefaultForAz": true,
+            "MapPublicIpOnLaunch": true,
+            "MapCustomerOwnedIpOnLaunch": false,
+            "State": "available",
+            "SubnetId": "subnet-74b73a2b",
+            "VpcId": "vpc-1c5b8661",
+            "OwnerId": "810661096819",
+            "AssignIpv6AddressOnCreation": false,
+            "Ipv6CidrBlockAssociationSet": [],
+            "SubnetArn": "arn:aws:ec2:us-east-1:810661096819:subnet/subnet-74b73a2b"
+        },
+        {
+            "AvailabilityZone": "us-east-1c",
+            "AvailabilityZoneId": "use1-az4",
+            "AvailableIpAddressCount": 250,
+            "CidrBlock": "10.0.1.0/24",
+            "DefaultForAz": false,
+            "MapPublicIpOnLaunch": true,
+            "MapCustomerOwnedIpOnLaunch": false,
+            "State": "available",
+            "SubnetId": "subnet-0938dd5c084147649",
+            "VpcId": "vpc-05108f3267f43bd41",
+            "OwnerId": "810661096819",
+            "AssignIpv6AddressOnCreation": false,
+            "Ipv6CidrBlockAssociationSet": [],
+            "SubnetArn": "arn:aws:ec2:us-east-1:810661096819:subnet/subnet-0938dd5c084147649"
+        },
+        {
+            "AvailabilityZone": "us-east-1b",
+            "AvailabilityZoneId": "use1-az2",
+            "AvailableIpAddressCount": 4091,
+            "CidrBlock": "172.31.80.0/20",
+            "DefaultForAz": true,
+            "MapPublicIpOnLaunch": true,
+            "MapCustomerOwnedIpOnLaunch": false,
+            "State": "available",
+            "SubnetId": "subnet-02f07f23",
+            "VpcId": "vpc-1c5b8661",
+            "OwnerId": "810661096819",
+            "AssignIpv6AddressOnCreation": false,
+            "Ipv6CidrBlockAssociationSet": [],
+            "SubnetArn": "arn:aws:ec2:us-east-1:810661096819:subnet/subnet-02f07f23"
+        },
+        {
+            "AvailabilityZone": "us-east-1c",
+            "AvailabilityZoneId": "use1-az4",
+            "AvailableIpAddressCount": 4091,
+            "CidrBlock": "172.31.16.0/20",
+            "DefaultForAz": true,
+            "MapPublicIpOnLaunch": true,
+            "MapCustomerOwnedIpOnLaunch": false,
+            "State": "available",
+            "SubnetId": "subnet-38376775",
+            "VpcId": "vpc-1c5b8661",
+            "OwnerId": "810661096819",
+            "AssignIpv6AddressOnCreation": false,
+            "Ipv6CidrBlockAssociationSet": [],
+            "SubnetArn": "arn:aws:ec2:us-east-1:810661096819:subnet/subnet-38376775"
+        },
+        {
+            "AvailabilityZone": "us-east-1f",
+            "AvailabilityZoneId": "use1-az5",
+            "AvailableIpAddressCount": 4091,
+            "CidrBlock": "172.31.64.0/20",
+            "DefaultForAz": true,
+            "MapPublicIpOnLaunch": true,
+            "MapCustomerOwnedIpOnLaunch": false,
+            "State": "available",
+            "SubnetId": "subnet-d40379da",
+            "VpcId": "vpc-1c5b8661",
+            "OwnerId": "810661096819",
+            "AssignIpv6AddressOnCreation": false,
+            "Ipv6CidrBlockAssociationSet": [],
+            "SubnetArn": "arn:aws:ec2:us-east-1:810661096819:subnet/subnet-d40379da"
+        },
+        {
+            "AvailabilityZone": "us-east-1c",
+            "AvailabilityZoneId": "use1-az4",
+            "AvailableIpAddressCount": 251,
+            "CidrBlock": "10.0.0.0/24",
+            "DefaultForAz": false,
+            "MapPublicIpOnLaunch": false,
+            "MapCustomerOwnedIpOnLaunch": false,
+            "State": "available",
+            "SubnetId": "subnet-0de23adf58e996c91",
+            "VpcId": "vpc-05108f3267f43bd41",
+            "OwnerId": "810661096819",
+            "AssignIpv6AddressOnCreation": false,
+            "Ipv6CidrBlockAssociationSet": [],
+            "SubnetArn": "arn:aws:ec2:us-east-1:810661096819:subnet/subnet-0de23adf58e996c91"
+        }
+    ]
+}
+
+
+C:\Users\artak>
+C:\Users\artak>
+C:\Users\artak>
+C:\Users\artak>
+C:\Users\artak>
+C:\Users\artak>
+C:\Users\artak>
+C:\Users\artak>aws ec2 modify-subnet-attribute --subnet-id subnet-4bc6462d --map-public-ip-on-launch
+
+
+C:\Users\artak>aws ec2 run-instances --image-id ami-0c52395a97749da98 --count 1 --instance-type t2.micro --key-name ArturKey --security-group-ids sg-071860b345da461b5 --subnet-id subnet-4bc6462d --user-data file://apach.txt
+{
+    "Groups": [],
+    "Instances": [
+        {
+            "AmiLaunchIndex": 0,
+            "ImageId": "ami-0c52395a97749da98",
+            "InstanceId": "i-095bf811fff07e6a7",
+            "InstanceType": "t2.micro",
+            "KeyName": "ArturKey",
+            "LaunchTime": "2020-12-10T23:44:00+00:00",
+            "Monitoring": {
+                "State": "disabled"
+            },
+            "Placement": {
+                "AvailabilityZone": "us-east-1a",
+                "GroupName": "",
+                "Tenancy": "default"
+            },
+            "PrivateDnsName": "ip-172-31-8-98.ec2.internal",
+            "PrivateIpAddress": "172.31.8.98",
+            "ProductCodes": [],
+            "PublicDnsName": "",
+            "State": {
+                "Code": 0,
+                "Name": "pending"
+            },
+            "StateTransitionReason": "",
+            "SubnetId": "subnet-4bc6462d",
+            "VpcId": "vpc-1c5b8661",
+            "Architecture": "x86_64",
+            "BlockDeviceMappings": [],
+            "ClientToken": "f178cf41-d87b-4edf-8172-0c9674d369fb",
+            "EbsOptimized": false,
+            "EnaSupport": true,
+            "Hypervisor": "xen",
+            "NetworkInterfaces": [
+                {
+                    "Attachment": {
+                        "AttachTime": "2020-12-10T23:44:00+00:00",
+                        "AttachmentId": "eni-attach-0eeb5cfa341d6e43d",
+                        "DeleteOnTermination": true,
+                        "DeviceIndex": 0,
+                        "Status": "attaching"
+                    },
+                    "Description": "",
+                    "Groups": [
+                        {
+                            "GroupName": "Ard1artSecuritygroup",
+                            "GroupId": "sg-071860b345da461b5"
+                        }
+                    ],
+                    "Ipv6Addresses": [],
+                    "MacAddress": "02:6d:1d:3f:ac:27",
+                    "NetworkInterfaceId": "eni-04083aec3e7abd2f9",
+                    "OwnerId": "810661096819",
+                    "PrivateDnsName": "ip-172-31-8-98.ec2.internal",
+                    "PrivateIpAddress": "172.31.8.98",
+                    "PrivateIpAddresses": [
+                        {
+                            "Primary": true,
+                            "PrivateDnsName": "ip-172-31-8-98.ec2.internal",
+                            "PrivateIpAddress": "172.31.8.98"
+                        }
+                    ],
+                    "SourceDestCheck": true,
+                    "Status": "in-use",
+                    "SubnetId": "subnet-4bc6462d",
+                    "VpcId": "vpc-1c5b8661",
+                    "InterfaceType": "interface"
+                }
+            ],
+            "RootDeviceName": "/dev/xvda",
+            "RootDeviceType": "ebs",
+            "SecurityGroups": [
+                {
+                    "GroupName": "Ard1artSecuritygroup",
+                    "GroupId": "sg-071860b345da461b5"
+                }
+            ],
+            "SourceDestCheck": true,
+            "StateReason": {
+                "Code": "pending",
+                "Message": "pending"
+            },
+            "VirtualizationType": "hvm",
+            "CpuOptions": {
+                "CoreCount": 1,
+                "ThreadsPerCore": 1
+            },
+            "CapacityReservationSpecification": {
+                "CapacityReservationPreference": "open"
+            },
+            "MetadataOptions": {
+                "State": "pending",
+                "HttpTokens": "optional",
+                "HttpPutResponseHopLimit": 1,
+                "HttpEndpoint": "enabled"
+            },
+            "EnclaveOptions": {
+                "Enabled": false
+            }
+        }
+    ],
+    "OwnerId": "810661096819",
+    "ReservationId": "r-0bf13e7bc94f73b9f"
+}
+
+
+C:\Users\artak>
+C:\Users\artak>
+C:\Users\artak>
+C:\Users\artak>
+C:\Users\artak>
+C:\Users\artak>
+C:\Users\artak>
+C:\Users\artak>aws ec2 create-tags --resources i-095bf811fff07e6a7 --tags Key=Role,Value=WebServer
+
+
+C:\Users\artak>aws ec2 create-image --instance-id i-095bf811fff07e6a7 --name "Lab3" --description "Image (Apache Web Server)"
+{
+    "ImageId": "ami-074386461ebdc138f"
+}
+
+
+C:\Users\artak>
