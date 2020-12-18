@@ -1,16 +1,16 @@
 C:\Users\artak>aws ec2 create-security-group --group-name Ard1artSecuritygroup --description "Lab3" --vpc-id vpc-1c5b8661
 {
-    "GroupId": "sg-071860b345da461b5"
+    "GroupId": "sg-0be428ec82048f602"
 }
 
 
-C:\Users\artak>aws ec2 authorize-security-group-ingress --group-id sg-071860b345da461b5 --protocol tcp --port 22 --cidr 0.0.0.0/0
+C:\Users\artak>aws ec2 authorize-security-group-ingress --group-id sg-0be428ec82048f602 --protocol tcp --port 22 --cidr 0.0.0.0/0
 
 
-C:\Users\artak>aws ec2 authorize-security-group-ingress --group-id sg-071860b345da461b5 --protocol tcp --port 80 --cidr 0.0.0.0/0
+C:\Users\artak>aws ec2 authorize-security-group-ingress --group-id sg-0be428ec82048f602 --protocol tcp --port 80 --cidr 0.0.0.0/0
 
 
-C:\Users\artak>aws ec2 authorize-security-group-ingress --group-id sg-071860b345da461b5 --protocol tcp --port 443 --cidr 0.0.0.0/0
+C:\Users\artak>aws ec2 authorize-security-group-ingress --group-id sg-0be428ec82048f602 --protocol tcp --port 443 --cidr 0.0.0.0/0
 
 
 C:\Users\artak>aws ec2 create-key-pair --key-name ArturKey --query 'Lab3' --output text > ArturKey.pem
@@ -172,7 +172,7 @@ C:\Users\artak>
 C:\Users\artak>aws ec2 modify-subnet-attribute --subnet-id subnet-4bc6462d --map-public-ip-on-launch
 
 
-C:\Users\artak>aws ec2 run-instances --image-id ami-0c52395a97749da98 --count 1 --instance-type t2.micro --key-name ArturKey --security-group-ids sg-071860b345da461b5 --subnet-id subnet-4bc6462d --user-data file://apach.txt
+C:\Users\artak>aws ec2 run-instances --image-id ami-0790f8745fe3811a2 --count 1 --instance-type t2.micro --key-name ArturKey --security-group-ids sg-0be428ec82048f602 --subnet-id subnet-4bc6462d --user-data file://apach.txt
 {
     "Groups": [],
     "Instances": [
