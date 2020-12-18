@@ -178,8 +178,8 @@ C:\Users\artak>aws ec2 run-instances --image-id ami-0c52395a97749da98 --count 1 
     "Instances": [
         {
             "AmiLaunchIndex": 0,
-            "ImageId": "ami-0c52395a97749da98",
-            "InstanceId": "i-095bf811fff07e6a7",
+            "ImageId": "ami-0790f8745fe3811a2",
+            "InstanceId": "i-0241ec1a2d4149796",
             "InstanceType": "t2.micro",
             "KeyName": "ArturKey",
             "LaunchTime": "2020-12-10T23:44:00+00:00",
@@ -288,12 +288,12 @@ C:\Users\artak>
 C:\Users\artak>
 C:\Users\artak>
 C:\Users\artak>
-C:\Users\artak>aws ec2 create-tags --resources i-095bf811fff07e6a7 --tags Key=Role,Value=WebServer
+C:\Users\artak>aws ec2 create-tags --resources i-0241ec1a2d4149796 --tags Key=Role,Value=WebServer
 
 
-C:\Users\artak>aws ec2 create-image --instance-id i-095bf811fff07e6a7 --name "Lab3" --description "Image (Apache Web Server)"
+C:\Users\artak>aws ec2 create-image --instance-id i-0241ec1a2d4149796 --name "Lab3" --description "Image (Apache Web Server)"
 {
-    "ImageId": "ami-074386461ebdc138f"
+    "ImageId": "ami-0790f8745fe3811a2"
 }
 
 
